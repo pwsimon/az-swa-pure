@@ -10,6 +10,10 @@
 		{
 			"route": "/authAdmin.html",
 			"allowedRoles": [ "administrator" ]
+		},
+		{
+			"route": "/api/authreq",
+			"allowedRoles": ["authenticated"]
 		}
 	]
 }
