@@ -1,0 +1,15 @@
+{
+	"navigationFallback": {
+		"rewrite": "/index.html"
+	},
+	"routes": [
+		{
+			"route": "/authUser.html",
+			"allowedRoles": [ "authenticated" ]
+		},
+		{
+			"route": "/authAdmin.html",
+			"allowedRoles": [ "administrator" ]
+		}
+	]
+}
