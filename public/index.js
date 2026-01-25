@@ -23,6 +23,10 @@ window.addEventListener("load", () => {
 		})
 		.then(data => {
 			console.log("User Roles:", data.clientPrincipal?.userRoles);
+			if (data.clientPrincipal?.userRoles.includes("authenticated"))
+				document.getElementById("user-link").classList.remove("disabled-link");
+			if (data.clientPrincipal?.userRoles.includes("administrator"))
+				document.getElementById("admin-link").classList.remove("disabled-link");
 		})
 		.catch(error => {
 			console.error("Error fetching user info:", error);
