@@ -1,0 +1,10 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "az-swa-pure": {
+      "appLocation": "public",
+      "apiDevserverUrl": "http://localhost:7071",
+      "outputLocation": "."
+    }
+  }
+}
