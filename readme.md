@@ -29,3 +29,20 @@ npx swa start
 # ToDo
 
 routen (authentication) hinzufuegen & configurieren (admin, ...)
+
+## Deployment (Productive)
+
+damit wir das real/produktiv Testen können müssen wir es nach Azure Deployen.
+Wir verwenden dazu die "xxxxxxx" Subscription und eine "(GitHub) pwsimon" CI/CD Workflow/Pipeline.
+
+## wir machen ein push nach GitHub (pwsimon)
+
+```
+git remote add origin https://github.com/pwsimon/az-swa-pure.git
+git branch -M main
+git push -u origin main
+```
+
+## wir erezeugen eine Azure Static App mit der VSCode Extension
+
+- die `.github/workflows/azure-static-web-apps-lively-rock-023c0931e.yml` fuehrt das Deployment aus

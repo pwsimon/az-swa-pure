@@ -3,7 +3,6 @@
   "configurations": {
     "az-swa-pure": {
       "appLocation": "public",
-      "apiDevserverUrl": "http://localhost:7071",
       "outputLocation": "."
     }
   }
