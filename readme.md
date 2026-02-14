@@ -28,7 +28,8 @@ npx swa start
 
 # ToDo
 
-routen (authentication) hinzufuegen & configurieren (admin, ...)
+Verknüpfen einer Azure App Service-Web-App  
+siehe: [API-Unterstützung in Azure Static Web Apps mit Azure App Service](https://learn.microsoft.com/de-de/azure/static-web-apps/apis-app-service)
 
 ## Deployment (Productive)
 
@@ -43,6 +44,22 @@ git branch -M main
 git push -u origin main
 ```
 
-## wir erezeugen eine Azure Static App mit der VSCode Extension
+Mit dem einrichten der CI/CD GitHub-Action wird ein PAT fuer *Azure* ausgestellt  
+und in den [Authorized OAuth Apps](https://github.com/settings/applications) hinterlegt.
 
-- die `.github/workflows/azure-static-web-apps-lively-rock-023c0931e.yml` fuehrt das Deployment aus
+Entsprechend loeschen nicht vergessen.
+
+## [Azure Static App (az-swa-pure)](https://orange-rock-03103171e.1.azurestaticapps.net)
+
+aus dem Azure Portal erzeugt.  
+wobei wir als das Repository angeben.  
+Die Credentials werden benoetigt um:
+- das `.github\workflows\azure-static-web-apps-orange-rock-03103171e.yml` zu erzeugen.
+- das [Bereitstellungstoken](https://github.com/pwsimon/az-swa-pure/settings/secrets/actions) in den GitHub-EnvironmentValriablen zu speichern (damit ein push autom. ein Deploy ausfuehrt)
+
+### EntraID: (Bitwarden estos/Labor)
+
+- caspar.hauser@servonic.org (authenticated)
+- anna.bolika@servonic.org (authenticated, administrator)
+
+## [Azure App Service (az-backend)]()
