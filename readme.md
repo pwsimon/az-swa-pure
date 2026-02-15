@@ -33,8 +33,11 @@ siehe: [API-Unterstützung in Azure Static Web Apps mit Azure App Service](https
 
 ## Deployment (Productive)
 
-damit wir das real/produktiv Testen können müssen wir es nach Azure Deployen.
-Wir verwenden dazu die "xxxxxxx" Subscription und eine "(GitHub) pwsimon" CI/CD Workflow/Pipeline.
+damit wir das real/produktiv Testen können müssen wir 2 Deployments machen:
+- als [Azure Static App](#azure-static-app-az-swa-pure)
+- als [Azure App Service](#azure-app-service-az-staticwebapp-backend)
+
+Wir verwenden in beiden fällen den selben Mandanten (estos/Labor) und eine "(GitHub) pwsimon" CI/CD Workflow/Pipeline.
 
 ## wir machen ein push nach GitHub (pwsimon)
 
@@ -52,7 +55,7 @@ Entsprechend loeschen nicht vergessen.
 ## [Azure Static App (az-swa-pure)](https://orange-rock-03103171e.1.azurestaticapps.net)
 
 aus dem Azure Portal erzeugt.  
-wobei wir als das Repository angeben.  
+wobei wir: `https://github.com/pwsimon/az-swa-pure.git` als das Repository angeben.  
 Die Credentials werden benoetigt um:
 - das `.github\workflows\azure-static-web-apps-orange-rock-03103171e.yml` zu erzeugen.
 - das [Bereitstellungstoken](https://github.com/pwsimon/az-swa-pure/settings/secrets/actions) in den GitHub-EnvironmentValriablen zu speichern (damit ein push autom. ein Deploy ausfuehrt)
@@ -62,4 +65,7 @@ Die Credentials werden benoetigt um:
 - caspar.hauser@servonic.org (authenticated)
 - anna.bolika@servonic.org (authenticated, administrator)
 
-## [Azure App Service (az-backend)]()
+## [Azure App Service (az-staticWebApp-backend)]()
+
+aus dem Azure Portal erzeugt.  
+wobei wir: `https://github.com/pwsimon/az-swa-pure.git` als das Repository angeben.  
