@@ -28,7 +28,8 @@ npx swa start
 
 # ToDo
 
-Verknüpfen einer Azure App Service-Web-App  
+Verknüpfen einer Azure App Service-Web-App ...
+
 siehe: [API-Unterstützung in Azure Static Web Apps mit Azure App Service](https://learn.microsoft.com/de-de/azure/static-web-apps/apis-app-service)
 
 ## Deployment (Productive)
@@ -38,6 +39,8 @@ damit wir das real/produktiv Testen können müssen wir 2 Deployments machen:
 - als [Azure App Service](#azure-app-service-az-staticwebapp-backend)
 
 Wir verwenden in beiden fällen den selben Mandanten (estos/Labor) und eine "(GitHub) pwsimon" CI/CD Workflow/Pipeline.
+- Die `.github\workflows\azure-static-web-apps-orange-rock-03103171e.yml` GitHub-Action fuer: Azure Static App
+- Die `.github\workflows\main_az-staticwebapp-backend.yml` GitHub-Action fuer: Azure App Service
 
 ## wir machen ein push nach GitHub (pwsimon)
 
@@ -65,7 +68,7 @@ Die Credentials werden benoetigt um:
 - caspar.hauser@servonic.org (authenticated)
 - anna.bolika@servonic.org (authenticated, administrator)
 
-## [Azure App Service (az-staticWebApp-backend)]()
+## [Azure App Service (az-staticWebApp-backend)](https://az-staticWebApp-backend-c6asf0b8aegxbnb5.westus2-01.azurewebsites.net)
 
 aus dem Azure Portal erzeugt.  
 wobei wir: `https://github.com/pwsimon/az-swa-pure.git` als das Repository angeben.  

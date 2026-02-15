@@ -3,11 +3,18 @@ import { Request, Response } from "express";
 
 const app = express();
 
+// Diese Route ist NICHT mehr erreichbar sobald die Azure Static Web App mit diesem Azure App Service verknuepft wurde!
+// Begruendung:
+// Da die Azure Static Web App die Route "/" bereits belegt.
+// Sobald die Verknuepfung mit der Azure Static Web App hergestellt ist, wird die Route "/" von der Azure Static Web App bedient und nicht mehr von diesem Express-Server.
+// Daher ist diese Route nur erreichbar, solange die Azure Static Web App nicht mit diesem Azure App Service verknuepft ist.
 app.get("/", (req: Request, res: Response) => {
 	res.send("Hello az-SWA-pure");
 });
 
-// API-Route built/coded for: requires authorization using middleware Easy Auth
+// API-Route built/coded for: Azure Authorization using middleware Easy Auth
+// 1.) direct als Azure Web Service ohne Azure Static Web App.
+// 2.) indirect via. Azure Static Web App.
 app.get("/api/authreq", (req: Request, res: Response) => {
 	/*
 	* [x-ms-client-principal](https://learn.microsoft.com/de-de/azure/static-web-apps/user-information?tabs=javascript#api-functions)
