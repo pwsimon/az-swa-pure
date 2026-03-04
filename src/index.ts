@@ -1,6 +1,8 @@
 import express from "express";
 import { Request, Response } from "express";
 
+import { ORSet } from "./or-set";
+
 const app = express();
 
 // Diese Route ist NICHT mehr erreichbar sobald die Azure Static Web App mit diesem Azure App Service verknuepft wurde!
