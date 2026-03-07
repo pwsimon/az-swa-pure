@@ -14,6 +14,17 @@ function doBackendCall() {
 		});
 }
 window.addEventListener("load", () => {
+	document.getElementById("edtAdd").addEventListener("change", (event) => {
+		/*
+		* https://developer.mozilla.org/de/docs/Web/API/HTMLSelectElement/add
+		document.getElementById("list").add();
+		*/
+		document.getElementById("list").insertAdjacentHTML("afterbegin", `<option>${event.target.value.trim()}</option>`)
+	});
+	document.getElementById("btnRemove").addEventListener("click", (event) => {
+		const htmlList = document.getElementById("list");
+		htmlList.remove(htmlList.selectedIndex);
+	});
 	fetch(document.location.origin + "/.auth/me")
 		.then(response => {
 			if (!response.ok) {
