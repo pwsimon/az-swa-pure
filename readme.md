@@ -26,11 +26,17 @@ git commit -m "Initiales Node.js Projekt mit TypeScript und Express"
 npx swa start
 ```
 
+## Debugging (SWA)
+
+das backend via. `launch.json` und die Web Site via. `swa`
+
+```
+npx swa start --api-devserver-url http://localhost:7071
+```
+
 # ToDo
 
-Verknüpfen einer Azure App Service-Web-App ...
-
-siehe: [API-Unterstützung in Azure Static Web Apps mit Azure App Service](https://learn.microsoft.com/de-de/azure/static-web-apps/apis-app-service)
+...
 
 ## Deployment (Productive)
 
