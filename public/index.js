@@ -14,6 +14,10 @@ function doBackendCall() {
 		});
 }
 window.addEventListener("load", () => {
+	document.getElementById("btnSetNodeId").addEventListener("click", (event) => {
+		window.localStorage.setItem("nodeId", document.getElementById("edtNodeId").value);
+	});
+
 	fetch(document.location.origin + "/.auth/me")
 		.then(response => {
 			if (!response.ok) {

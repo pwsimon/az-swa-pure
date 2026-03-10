@@ -1,9 +1,16 @@
 import CORSet from "./or-set.js";
 
 window.addEventListener("load", () => {
+	const nodeId = window.localStorage.getItem("nodeId");
+	if (!nodeId) {
+		console.warn("needs a nodeId to work ...");
+		return;
+	}
+
+	document.title = `Backend API using EasyAuth (${nodeId})`;
 	const persist = JSON.parse(window.localStorage.getItem("favorites"));
-	const mySet = persist ? CORSet.fromJSON(persist, "client-a") : new CORSet("client-a");
 	const htmlList = document.getElementById("list");
+	const mySet = persist ? CORSet.fromJSON(persist, nodeId) : new CORSet(nodeId);
 
 	mySet.values().forEach(element => {
 		htmlList.insertAdjacentHTML("afterbegin", `<option>${element}</option>`)
@@ -32,8 +39,9 @@ window.addEventListener("load", () => {
 	document.getElementById("btnSave").addEventListener("click", (event) => {
 		window.localStorage.setItem("favorites", mySet.stringify());
 	});
-	document.getElementById("btnGet").addEventListener("click", (event) => {
-		fetch(document.location.origin + "/api/favorites/client-s")
+	document.getElementById("btnMerge").addEventListener("click", (event) => {
+		const nodeId2Merge = document.getElementById("edtNodeId").value;
+		fetch(document.location.origin + `/api/favorites/${nodeId2Merge}`)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error("Network response was not ok");
@@ -41,14 +49,19 @@ window.addEventListener("load", () => {
 			return response.json();
 		})
 		.then(data => {
-			const clientaSet = data ? CORSet.fromJSON(data, "client-a") : new CORSet("client-a");
+			const set2Merge = CORSet.fromJSON(data, nodeId2Merge);
+			mySet.merge(set2Merge);
+			htmlList.options.length = 0; // Removes all options
+			mySet.values().forEach(element => {
+				htmlList.insertAdjacentHTML("afterbegin", `<option>${element}</option>`)
+			});
 		})
 		.catch(error => {
 			console.error("Error calling backend:", error);
 		});
 	});
 	document.getElementById("btnPush").addEventListener("click", (event) => {
-		fetch(document.location.origin + "/api/favorites/client-a", {
+		fetch(document.location.origin + `/api/favorites/${nodeId}`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
