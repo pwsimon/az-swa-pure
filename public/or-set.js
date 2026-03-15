@@ -1,3 +1,14 @@
+/*
+* 1.) unter zu-hilfenahme von: alt/neu
+*  neu     =>   alt
+* 1, 2, 3      1, 2   = 1, 2, 3  // 3 ist neu
+* 1, 3         1, 2   = 1, 3     // 3 ist neu, 2 ist deleted
+*
+* 2.) einfache differenz
+*   A    DIFF    B
+* 1, 2, 3      1, 2   = 3        // 3
+* 1, 3         1, 2   = 2, 3     // 2, 3
+*/
 export default class ORSet {
 	constructor(nodeId) {
 		this.nodeId = nodeId;        // eindeutige ID dieser Instanz
@@ -35,30 +46,29 @@ export default class ORSet {
 
 		for (const [value, tags] of this.adds.entries()) {
 			const aliveTags = [...tags].filter(tag => !this.removes.has(tag));
-			if (aliveTags.length > 0) {
-			result.push(value);
-			}
+			if (aliveTags.length > 0)
+				result.push(value);
 	}
 
-	return result;
+		return result;
 	}
 
 	// Merge zweier OR-Sets
 	merge(other) {
-	// adds mergen
-	for (const [value, tags] of other.adds.entries()) {
-		if (!this.adds.has(value)) {
-		this.adds.set(value, new Set());
+		// adds mergen
+		for (const [value, tags] of other.adds.entries()) {
+			if (!this.adds.has(value)) {
+				this.adds.set(value, new Set());
+			}
+			for (const tag of tags) {
+				this.adds.get(value).add(tag);
+			}
 		}
-		for (const tag of tags) {
-		this.adds.get(value).add(tag);
-		}
-	}
 
-	// removes mergen
-	for (const tag of other.removes) {
-		this.removes.add(tag);
-	}
+		// removes mergen
+		for (const tag of other.removes) {
+			this.removes.add(tag);
+		}
 	}
 
 	stringify() {
