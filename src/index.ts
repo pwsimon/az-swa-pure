@@ -20,7 +20,7 @@ function ensureString(
 
 // business logic
 const mapFavorites = new Map<string, object>([
-	[ "client-s", {"adds":{"peter (client-s)":["client-s-1773168899550-0.5761163788515872"]},"removes":[]} ]
+	[ "client-s", {"adds":{"peter":["client-s-1773168899550-0.5761163788515872"]},"removes":[]} ]
 ]);
 
 const app = express();
