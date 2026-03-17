@@ -4,25 +4,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Backend API using EasyAuth</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 	<link rel="stylesheet" href="index.css">
 	<script defer src="index.js"></script>
 	<script type="module" src="or-set-handler.js"></script>
 </head>
 <body>
+	<div class="w3-bar w3-black">
+		<button class="w3-bar-item w3-button" command="show-modal" commandfor="dlgSettings">Settings</button>
+		<a href="/.auth/logout" class="w3-bar-item w3-button">Logout</a>
+	</div>
+
 	<h1>Backend API using EasyAuth</h1>
 	<a href="/.auth/me">check user info</a> |
 	<a href="/.auth/login/aad">Login</a> |
 	<a href="/api/authreq">Backend Call (direkt)</a> |
-	<button onclick="doBackendCall()">Backend Call (fetch)</button> |
-	<a href="/.auth/logout">Logout</a><br/>
+	<button onclick="doBackendCall()">Backend Call (fetch)</button><br/>
 	<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
 	<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
 	<h3>or-set</h3>
 	<select id="list" size="5">
 	</select>
-	<div>
+	<!--
+		https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog
+	-->
+	<dialog id="dlgSettings">
 		nodeId: <input id="edtNodeId" type="text"></input><button id="btnSetNodeId" >SetNodeId</button> | <button id="btnMerge" >Merge</button>
-	</div>
+	</dialog>
 	<div>
 		<input id="edtAdd" type="text"></input> | <button id="btnRemove" >Remove</button> |
 		<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>

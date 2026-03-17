@@ -15,6 +15,7 @@ function doBackendCall() {
 }
 window.addEventListener("load", () => {
 	document.getElementById("btnSetNodeId").addEventListener("click", (event) => {
+		// console.log("btnSetNodeId::click()");
 		window.localStorage.setItem("nodeId", document.getElementById("edtNodeId").value);
 	});
 
