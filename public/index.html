@@ -14,26 +14,37 @@
 		<button class="w3-bar-item w3-button" command="show-modal" commandfor="dlgSettings">Settings</button>
 		<a href="/.auth/logout" class="w3-bar-item w3-button">Logout</a>
 	</div>
-
 	<h1>Backend API using EasyAuth</h1>
-	<a href="/.auth/me">check user info</a> |
-	<a href="/.auth/login/aad">Login</a> |
-	<a href="/api/authreq">Backend Call (direkt)</a> |
-	<button onclick="doBackendCall()">Backend Call (fetch)</button><br/>
-	<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
-	<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
-	<h3>or-set</h3>
-	<select id="list" size="5">
-	</select>
+	<div class="w3-row">
+		<!-- 12 columns on a small screen, 4 on a medium screen, and 3 on a large screen. -->
+		<div class="w3-col m4 l3">
+			<a href="/.auth/me">check user info</a> |
+			<a href="/.auth/login/aad">Login</a> |
+			<a href="/api/authreq">Backend Call (direkt)</a> |
+			<button onclick="doBackendCall()">Backend Call (fetch)</button><br/>
+			<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
+			<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
+		</div>
+		<div class="w3-col m2 l2">
+			<h3>or-set</h3>
+			<select id="list" size="5">
+			</select>
+		</div>
+		<div class="w3-col m4 l3">
+			<input id="edtAdd" type="text"></input> | <button id="btnRemove" >Remove</button> |
+			<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
+		</div>
+	</div>
 	<!--
 		https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog
 	-->
 	<dialog id="dlgSettings">
-		nodeId: <input id="edtNodeId" type="text"></input><button id="btnSetNodeId" >SetNodeId</button> | <button id="btnMerge" >Merge</button>
+		<form method="dialog">
+			nodeId: <input id="edtNodeId" type="text"></input><button id="btnSetNodeId" >SetNodeId</button> | <button id="btnMerge" >Merge</button>
+			<div>
+				<button value="close">Close</button>
+			</div>
+		</form>
 	</dialog>
-	<div>
-		<input id="edtAdd" type="text"></input> | <button id="btnRemove" >Remove</button> |
-		<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
-	</div>
 </body>
 </html>
