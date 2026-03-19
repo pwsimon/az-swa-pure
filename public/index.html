@@ -16,8 +16,13 @@
 	</div>
 	<h1>Backend API using EasyAuth</h1>
 	<div class="w3-row">
-		<!-- 12 columns on a small screen, 4 on a medium screen, and 3 on a large screen. -->
-		<div class="w3-col m4 l3">
+		<!--
+			https://www.w3schools.com/w3css/w3css_responsive.asp
+			on a large screen: i have, one row with 3 columns (same size)
+			on a medium screen: i have, two rows, 1: with 12 columns, 2: 
+			on sa small screen: i have 3 rows with with 12 columns
+		-->
+		<div class="w3-col m12 l4 w3-red">
 			<a href="/.auth/me">check user info</a> |
 			<a href="/.auth/login/aad">Login</a> |
 			<a href="/api/authreq">Backend Call (direkt)</a> |
@@ -25,12 +30,12 @@
 			<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
 			<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
 		</div>
-		<div class="w3-col m2 l2">
+		<div class="w3-col m2 l4 w3-blue">
 			<h3>or-set</h3>
 			<select id="list" size="5">
 			</select>
 		</div>
-		<div class="w3-col m4 l3">
+		<div class="w3-col m10 l4 w3-green">
 			<input id="edtAdd" type="text"></input> | <button id="btnRemove" >Remove</button> |
 			<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
 		</div>
