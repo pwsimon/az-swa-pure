@@ -18,25 +18,40 @@
 	<div class="w3-row">
 		<!--
 			https://www.w3schools.com/w3css/w3css_responsive.asp
-			on a large screen: i have, one row with 3 columns (same size)
-			on a medium screen: i have, two rows, 1: with 12 columns, 2: 
-			on sa small screen: i have 3 rows with with 12 columns
+			on a large/medium screen: i have, one row with 2 columns (10/2)
+			on sa small screen: i have 2 rows with 12 columns
 		-->
-		<div class="w3-col m12 l4 w3-red">
+		<div class="w3-col m10 l10 w3-red">
 			<a href="/.auth/me">check user info</a> |
 			<a href="/.auth/login/aad">Login</a> |
 			<a href="/api/authreq">Backend Call (direkt)</a> |
-			<button onclick="doBackendCall()">Backend Call (fetch)</button><br/>
+			<button onclick="doBackendCall()">Backend Call (fetch)</button>
+		</div>
+		<div class="w3-col m2 l2 w3-blue">
 			<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
 			<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
 		</div>
-		<div class="w3-col m2 l4 w3-blue">
-			<h3>or-set</h3>
-			<select id="list" size="5">
-			</select>
+	</div>
+	<div class="w3-row">
+		<!--
+			https://www.w3schools.com/w3css/w3css_responsive.asp
+			on a large/medium screen: i have, one row with 2 columns (3/9)
+			on sa small screen: i have 2 rows with with 12 columns
+		-->
+		<div class="w3-col m3 l3 w3-blue">
+			<div class="w3-container">
+				<div class="w3-display-container" style="height: 130px;">
+					<div class="w3-display-topmiddle">or-set</div>
+					<div class="w3-display-bottomleft" style="width: 100%;">
+						<select id="list" size="5" class="full-width">
+						</select>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="w3-col m10 l4 w3-green">
-			<input id="edtAdd" type="text"></input> | <button id="btnRemove" >Remove</button> |
+		<div class="w3-col m9 l9 w3-green">
+			<input id="edtAdd" type="text" style="width:100%;"></input><br>
+			<button id="btnRemove" >Remove</button> |
 			<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
 		</div>
 	</div>
