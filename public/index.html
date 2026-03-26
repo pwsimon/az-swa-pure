@@ -15,44 +15,48 @@
 		<a href="/.auth/logout" class="w3-bar-item w3-button">Logout</a>
 	</div>
 	<h1>Backend API using EasyAuth</h1>
-	<div class="w3-row">
-		<!--
-			https://www.w3schools.com/w3css/w3css_responsive.asp
-			on a large/medium screen: i have, one row with 2 columns (10/2)
-			on sa small screen: i have 2 rows with 12 columns
-		-->
-		<div class="w3-col m10 l10 w3-red">
-			<a href="/.auth/me">check user info</a> |
-			<a href="/.auth/login/aad">Login</a> |
-			<a href="/api/authreq">Backend Call (direkt)</a> |
-			<button onclick="doBackendCall()">Backend Call (fetch)</button>
-		</div>
-		<div class="w3-col m2 l2 w3-blue">
-			<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
-			<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
+	<div class="w3-panel w3-green">
+		<div class="w3-row">
+			<!--
+				https://www.w3schools.com/w3css/w3css_responsive.asp
+				on a large/medium screen: i have, one row with 2 columns (10/2)
+				on a small screen: i have 2 rows with 12 columns
+			-->
+			<div class="w3-col m10 l10">
+				<a href="/.auth/me">check user info</a> |
+				<a href="/.auth/login/aad">Login</a> |
+				<a href="/api/authreq">Backend Call (direkt)</a> |
+				<button onclick="doBackendCall()">Backend Call (fetch)</button>
+			</div>
+			<div class="w3-col m2 l2">
+				<a id="user-link" class="disabled-link" href="/authUser.html">User</a> |
+				<a id="admin-link" class="disabled-link" href="/authAdmin.html">Admin</a>
+			</div>
 		</div>
 	</div>
-	<div class="w3-row">
-		<!--
-			https://www.w3schools.com/w3css/w3css_responsive.asp
-			on a large/medium screen: i have, one row with 2 columns (3/9)
-			on sa small screen: i have 2 rows with with 12 columns
-		-->
-		<div class="w3-col m3 l3 w3-blue">
-			<div class="w3-container">
-				<div class="w3-display-container" style="height: 130px;">
-					<div class="w3-display-topmiddle">or-set</div>
-					<div class="w3-display-bottomleft" style="width: 100%;">
-						<select id="list" size="5" class="full-width">
-						</select>
+	<div class="w3-panel w3-green">
+		<div class="w3-row">
+			<!--
+				https://www.w3schools.com/w3css/w3css_responsive.asp
+				on a large/medium screen: i have, one row with 2 columns (3/9)
+				on a small screen: i have 2 rows with with 12 columns
+			-->
+			<div class="w3-col m3 l3">
+				<div class="w3-container">
+					<div class="w3-display-container" style="height: 130px;">
+						<div class="w3-display-topmiddle">or-set</div>
+						<div class="w3-display-bottomleft" style="width: 100%;">
+							<select id="list" size="5" class="full-width">
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="w3-col m9 l9 w3-green">
-			<input id="edtAdd" type="text" style="width:100%;"></input><br>
-			<button id="btnRemove" >Remove</button> |
-			<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
+			<div class="w3-col m9 l9">
+				<input id="edtAdd" type="text" style="width:100%;"></input><br>
+				<button id="btnRemove" >Remove</button> |
+				<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
+			</div>
 		</div>
 	</div>
 	<!--
