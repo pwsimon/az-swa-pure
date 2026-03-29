@@ -1,6 +1,6 @@
 .disabled-link {
 	pointer-events: none; /* Prevents click events */
-	color: gray; /* Visual cue for disabled state */
+	opacity: 0.5; /* Visual cue for disabled state, respects system colors */
 	cursor: default;
 	text-decoration: none;
 }

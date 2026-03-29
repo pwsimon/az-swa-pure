@@ -15,6 +15,7 @@
 		<a href="/.auth/logout" class="w3-bar-item w3-button">Logout</a>
 	</div>
 	<h1>Backend API using EasyAuth</h1>
+	<!-- encapsulate StatcApp/Backend sample -->
 	<div class="w3-panel w3-green">
 		<div class="w3-row">
 			<!--
@@ -34,6 +35,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- encapsulate Or-Set sample -->
 	<div class="w3-panel w3-green">
 		<div class="w3-row">
 			<!--
@@ -54,8 +56,9 @@
 			</div>
 			<div class="w3-col m9 l9">
 				<input id="edtAdd" type="text" style="width:100%;"></input><br>
-				<button id="btnRemove" >Remove</button> |
-				<button id="btnSave" >Save</button> | <button id="btnPush" >Push</button>
+				<button id="btnRemove">Remove</button> |
+				<button id="btnSave" disabled>Save</button> |
+				<button id="btnPush" disabled>Push</button>
 			</div>
 		</div>
 	</div>
@@ -64,7 +67,10 @@
 	-->
 	<dialog id="dlgSettings">
 		<form method="dialog">
-			nodeId: <input id="edtNodeId" type="text"></input><button id="btnSetNodeId" >SetNodeId</button> | <button id="btnMerge" >Merge</button>
+			nodeId: <input id="edtNodeId" type="text" style="width:320px;" placeholder="Node ID to Set or Merge from Server"></input>
+			<div>
+				<button id="btnSetNodeId" >Reset (local) NodeId to</button> | <button id="btnMerge" >Merge</button>
+			</div>
 			<div>
 				<button value="close">Close</button>
 			</div>

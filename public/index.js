@@ -17,6 +17,16 @@ window.addEventListener("load", () => {
 	document.getElementById("btnSetNodeId").addEventListener("click", (event) => {
 		// console.log("btnSetNodeId::click()");
 		window.localStorage.setItem("nodeId", document.getElementById("edtNodeId").value);
+		window.localStorage.removeItem("favorites"); // reset favorites, as they are nodeId specific
+
+		/*
+		* after setting a new nodeId, the page needs to be reloaded to update the state of the buttons (enabled/disabled)
+		* Note:
+		* der Login-Status wird hier nicht beeintraechtigt, da dieser über die .auth/me API abgefragt wird,
+		* die weiterhin das gleiche Ergebnis liefern wird wie vor der Aenderung der `nodeId`
+		* (sofern der user sich nicht zwischenzeitlich ab- und wieder angemeldet hat).
+		*/
+		window.location.reload();
 	});
 
 	fetch(document.location.origin + "/.auth/me")

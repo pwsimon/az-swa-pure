@@ -36,15 +36,32 @@ function demo() {
 }
 
 window.addEventListener("load", () => {
-	const nodeId = window.localStorage.getItem("nodeId");
-	if (!nodeId) {
-		console.warn("needs a nodeId to work ...");
+	const htmlList = document.getElementById("list");
+	const btnSave = document.getElementById("btnSave");
+	const btnMerge = document.getElementById("btnMerge");
+	const btnPush = document.getElementById("btnPush");
+
+	/*
+	* alle Buttons sind disabled by default
+	* und muessen explizit zur laufzeit (code) entsprechend geschalten werden.
+	* Anmerkung:
+	* das disabled button wirkt sich automatisch auf die Tab(Stop)Order aus
+	* task-psi:
+	* 1.) die `nodeId` muss natuerlich in ein "Model" mit automatischer auswirkung auf die UI eingebaut werden (Redux)
+	* 2.) die `nodeId` wird auch noch in index.js benoetigt. all das muss synchronisiert/konsistent sein ...
+	*/
+	const nodeId = window.localStorage.getItem("nodeId") ?? "";
+	btnSave.disabled = nodeId.length === 0 ? true : false;
+	btnMerge.disabled = nodeId.length === 0 ? true : false;
+	btnPush.disabled = nodeId.length === 0 ? true : false;
+
+	if (nodeId.length === 0) {
+		console.warn("needs a local configuration (nodeId) to allow: Merge and Push operations");
 		return;
 	}
 
 	document.title = `Backend API using EasyAuth (${nodeId})`;
 	const persist = JSON.parse(window.localStorage.getItem("favorites"));
-	const htmlList = document.getElementById("list");
 	const mySet = persist ? CORSet.fromJSON(persist, nodeId) : new CORSet(nodeId);
 
 	mySet.values().forEach(element => {
@@ -71,10 +88,10 @@ window.addEventListener("load", () => {
 			htmlList.insertAdjacentHTML("afterbegin", `<option>${element}</option>`)
 		});
 	});
-	document.getElementById("btnSave").addEventListener("click", (event) => {
+	btnSave.addEventListener("click", (event) => {
 		window.localStorage.setItem("favorites", mySet.stringify());
 	});
-	document.getElementById("btnMerge").addEventListener("click", (event) => {
+	btnMerge.addEventListener("click", (event) => {
 		const nodeId2Merge = document.getElementById("edtNodeId").value;
 		fetch(document.location.origin + `/api/favorites/${nodeId2Merge}`)
 		.then(response => {
@@ -95,7 +112,7 @@ window.addEventListener("load", () => {
 			console.error("Error calling backend:", error);
 		});
 	});
-	document.getElementById("btnPush").addEventListener("click", (event) => {
+	btnPush.addEventListener("click", (event) => {
 		fetch(document.location.origin + `/api/favorites/${nodeId}`, {
 			method: "POST",
 			headers: {
